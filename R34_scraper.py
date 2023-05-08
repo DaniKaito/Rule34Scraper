@@ -28,6 +28,7 @@ def main():
 		else:
 			print(f"Already scraped: {imgUrl}")
 
+#DOWNLOADS IMAGE AND JSON
 def downloadImg(outputPath, imgUrl):
 	try:
 		print(f"\n\nNow analyzing the following url: {imgUrl}")
@@ -59,7 +60,7 @@ def downloadImg(outputPath, imgUrl):
 	except:
 		pass	
 
-
+#CREATES THE FILENAME FOR THE JSON AND IMAGE FILE
 def getOutputPath(out, img):
 	counter = 1
 	while True:	
@@ -69,6 +70,7 @@ def getOutputPath(out, img):
 			return outPath
 		counter += 1
 
+#RETURNS GIVEN A CLASS NAME ALL TAGS INSIDE IT
 def getMeta(list, className):
 	metaList = []
 	for listItem in list.find_all("li", {"class":className}):
@@ -76,6 +78,7 @@ def getMeta(list, className):
 		metaList.append(metaTag)
 	return metaList
 
+#RETURNS IMAGE PAGE URLS
 def getImgs(url, scraped):
 	imgArr = []
 	counter = 1
